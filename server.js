@@ -7,6 +7,9 @@ const register = require("./controllers/register");
 const signIn = require("./controllers/signIn");
 const profile = require("./controllers/profile");
 const image = require("./controllers/image");
+
+const app = express();
+
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -22,7 +25,6 @@ const db = knex({
     }
 });
 
-const app = express();
 const saltRounds = 10;
 
 app.get("/",(req,res) => {res.json("it is working")})
