@@ -25,7 +25,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 const saltRounds = 10;
 
-app.get("/",(req,res) => {res.json("it is working enganendd")})
+app.get("/",(req,res) => {res.json("it is working")})
 app.post("/signin",(req,res) => {signIn.handleSignIn(req,res,db,bcrypt)});
 app.post("/register",(req,res) => {register.handleRegister(req,res,db,bcrypt,saltRounds)});
 app.get("/profile/:id",(req,res) => {profile.handleProfile(req,res,db)});
