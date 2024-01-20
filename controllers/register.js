@@ -1,6 +1,6 @@
-const handleRegister = (req,res,db,bcrypt,saltRounds) => {
+const handleRegister = (req,res,db,bcrypt) => {
     const {name,email,password} = req.body;
-    const hash = bcrypt.hashSync(password,saltRounds);
+    const hash = bcrypt.hashSync(password);
 
     if(name.length && email.length && password.length){
         db.transaction(trx => {
