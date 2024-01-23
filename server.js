@@ -3,7 +3,7 @@ const cors = require("cors");
 const bcrypt = require("bcrypt-nodejs");
 const knex = require("knex");
 require('dotenv').config();
-const { Client } = require('pg');
+// const { Client } = require('pg'); 
 
 const register = require("./controllers/register");
 const signIn = require("./controllers/signIn");
@@ -38,8 +38,6 @@ app.use(express.urlencoded({ extended: false }));
 // });
 
 // client.connect();
-
-const knex = require("knex");
 
 const db = knex({
   client: "pg",
