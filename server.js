@@ -37,22 +37,25 @@ const db = knex({
 
 // const saltRounds = 10;
 
-db.raw('SELECT 1+1 as result')
-  .then(() => {
-    console.log('Connected to database');
-  })
-  .catch(err => {
-    console.error('Error connecting to database:', err);
+
+app.get("/",(req,res) => {
+    res.json("it is working");
+    db.raw('SELECT 1+1 as result')
+      .then(() => {
+        console.log('Connected to database');
+      })
+      .catch(err => {
+        console.error('Error connecting to database:', err);
+    });
+
 });
-
-app.get("/",(req,res) => {res.json("it is working")});
-app.post("/signin",(req,res) => {signIn.handleSignIn(req,res,db,bcrypt)});
-app.post("/register",(req,res) => {register.handleRegister(req,res,db,bcrypt)});
-app.get("/profile/:id",(req,res) => {profile.handleProfile(req,res,db)});
-app.put("/image",(req,res) => {image.handleImage(req,res,db)});
-app.post("/imageurl",(req,res) => {image.handleApiCall(req,res)});
+// app.post("/signin",(req,res) => {signIn.handleSignIn(req,res,db,bcrypt)});
+// app.post("/register",(req,res) => {register.handleRegister(req,res,db,bcrypt)});
+// app.get("/profile/:id",(req,res) => {profile.handleProfile(req,res,db)});
+// app.put("/image",(req,res) => {image.handleImage(req,res,db)});
+// app.post("/imageurl",(req,res) => {image.handleApiCall(req,res)});
 
 
-app.listen(process.env.PORT || 3000,() => {
-    console.log(`App is running on port ${process.env.PORT}`)
-});
+// app.listen(process.env.PORT || 3000,() => {
+//     console.log(`App is running on port ${process.env.PORT}`)
+// });
