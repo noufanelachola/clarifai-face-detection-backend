@@ -19,23 +19,24 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 const DataBase = process.env.PG_DATABASE;
-const UserName = process.env.PG_USER;
-const Password = process.env.PG_PASSWORD;
-const Port = process.env.PG_PORT;
-const Host = process.env.PG_HOST;
+// const UserName = process.env.PG_USER;
+// const Password = process.env.PG_PASSWORD;
+// const Port = process.env.PG_PORT;
+// const Host = process.env.PG_HOST;
 
 const db = knex({
     client: "pg",
-    connection: {
-        host : Host,
-        port : Port,
-        user : UserName,
-        password : Password,
-        database : DataBase,
-        ssl :  {
-            rejectUnauthorized: false
-        }
-    }
+    connectionString : process.env.PG_DATABASE;
+    // connection: {
+    //     host : Host,
+    //     port : Port,
+    //     user : UserName,
+    //     password : Password,
+    //     database : DataBase,
+    //     ssl :  {
+    //         rejectUnauthorized: false
+    //     }
+    // }
 });
 
 // const saltRounds = 10;
