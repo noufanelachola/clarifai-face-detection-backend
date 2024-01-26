@@ -4,6 +4,8 @@ const express = require("express");
 const cors = require("cors");
 const bcrypt = require("bcrypt-nodejs");
 const knex = require("knex");
+// require('dotenv').config();
+// const { Client } = require('pg'); 
 
 const register = require("./controllers/register");
 const signIn = require("./controllers/signIn");
@@ -32,7 +34,6 @@ const db = knex({
         database : DataBase
     }
 });
-
 
 // const saltRounds = 10;
 
