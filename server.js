@@ -37,6 +37,14 @@ const db = knex({
 
 // const saltRounds = 10;
 
+db.raw('SELECT 1+1 as result')
+  .then(() => {
+    console.log('Connected to database');
+  })
+  .catch(err => {
+    console.error('Error connecting to database:', err);
+});
+
 app.get("/",(req,res) => {res.json("it is working")});
 app.post("/signin",(req,res) => {signIn.handleSignIn(req,res,db,bcrypt)});
 app.post("/register",(req,res) => {register.handleRegister(req,res,db,bcrypt)});
