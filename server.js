@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require("express");
 const cors = require("cors");
 const bcrypt = require("bcrypt-nodejs");
@@ -16,17 +18,24 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+const DataBase = process.env.PG_DATABASE;
+const UserName = process.env.PG_USER;
+const Password = process.env.PG_PASSWORD;
+const Port = process.env.PG_PORT;
+const Host = process.env.PG_HOST;
+
 const db = knex({
     client: "pg",
     connection: {
-        host : '127.0.0.1',
-        port : 5432,
-        user : 'postgres',
-        password : '9987',
-        database : 'smartbrain'
+        host : Host,
+        port : Port,
+        user : UserName,
+        password : Password,
+        database : DataBase
     }
 });
 
+// const saltRounds = 10;
 
 app.get("/",(req,res) => {res.json("it is working")});
 app.post("/signin",(req,res) => {signIn.handleSignIn(req,res,db,bcrypt)});
