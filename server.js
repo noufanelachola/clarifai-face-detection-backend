@@ -39,7 +39,7 @@ const db = knex({
 
 
 app.get("/",(req,res) => {
-    res.json("it is working");
+    // res.json("it is working");
     db.raw('SELECT 1+1 as result')
       .then(() => {
         res.json('Connected to database');
