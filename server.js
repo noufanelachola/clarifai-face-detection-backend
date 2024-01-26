@@ -45,7 +45,9 @@ app.get("/",(req,res) => {
         res.json('Connected to database');
       })
       .catch(err => {
-        res.json('Error connecting to database:', err);
+        console.error('Error connecting to database:', err);
+        // Send error response with status code 500 (Internal Server Error)
+        res.status(500).json({ error: 'Error connecting to database' });
     });
 
 });
