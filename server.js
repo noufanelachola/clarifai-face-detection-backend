@@ -26,7 +26,7 @@ const DataBase = process.env.PG_DATABASE;
 
 const db = knex({
     client: "pg",
-    connectionString : process.env.PG_DATABASE;
+    connectionString : process.env.PG_DATABASE
     // connection: {
     //     host : Host,
     //     port : Port,
