@@ -32,7 +32,9 @@ const db = knex({
         user : UserName,
         password : Password,
         database : DataBase,
-        ssl : true
+        ssl :  {
+            rejectUnauthorized: false
+        }
     }
 });
 
