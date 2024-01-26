@@ -42,10 +42,10 @@ app.get("/",(req,res) => {
     res.json("it is working");
     db.raw('SELECT 1+1 as result')
       .then(() => {
-        console.log('Connected to database');
+        res.json('Connected to database');
       })
       .catch(err => {
-        console.error('Error connecting to database:', err);
+        res.json('Error connecting to database:', err);
     });
 
 });
