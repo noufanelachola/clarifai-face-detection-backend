@@ -31,7 +31,8 @@ const db = knex({
         port : Port,
         user : UserName,
         password : Password,
-        database : DataBase
+        database : DataBase,
+        ssl : true
     }
 });
 
