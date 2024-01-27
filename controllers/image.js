@@ -14,31 +14,6 @@ metadata.set("authorization", "Key " + PAT);
 
 const handleApiCall = (req,res) => {
     const IMAGE_URL = req.body.image;
-    
-    // const raw = JSON.stringify({
-    //     "user_app_id": {
-    //         "user_id": USER_ID,
-    //         "app_id": APP_ID
-    //     },
-    //     "inputs": [
-    //         {
-    //             "data": {
-    //                 "image": {
-    //                     "url": IMAGE_URL
-    //                 }
-    //             }
-    //         }
-    //     ]
-    // });
-    // const requestOptions = {
-    //     method: 'POST',
-    //     headers: {
-    //         'Accept': 'application/json',
-    //         'Authorization': 'Key ' + PAT
-    //     },
-    //     body: raw
-    // };
-
     stub.PostModelOutputs(
         {
             user_app_id: {
