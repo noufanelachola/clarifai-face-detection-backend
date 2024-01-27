@@ -43,16 +43,17 @@ const db = knex({
 
 
 app.get("/",(req,res) => {
+  res.json("hekii")
     // res.json("it is working");
-    db.raw('SELECT 1+1 as result')
-      .then(() => {
-        res.json('Connected to database');
-      })
-      .catch(err => {
-        console.error('Error connecting to database:', err);
-        // Send error response with status code 500 (Internal Server Error)
-        res.status(500).json({ error: 'Error connecting to database' });
-    });
+    // db.raw('SELECT 1+1 as result')
+    //   .then(() => {
+    //     res.json('Connected to database');
+    //   })
+    //   .catch(err => {
+    //     console.error('Error connecting to database:', err);
+    //     // Send error response with status code 500 (Internal Server Error)
+    //     res.status(500).json({ error: 'Error connecting to database' });
+    // });
 
 });
 // app.post("/signin",(req,res) => {signIn.handleSignIn(req,res,db,bcrypt)});
